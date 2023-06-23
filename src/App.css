@@ -1,3 +1,4 @@
+/* 全体 */
 .App {
   text-align: center;
 }
@@ -37,6 +38,90 @@
   }
 }
 
-ul {
-  list-style: none;
+/* NavBody */
+.navBody {
+  background-color: red;
+  color: #000;
+  font-size: clamp(16px,2.5vw,24px);
+  height: 100px;
+  overflow: hidden;
+  width: 100%;
+}
+
+.navBody, .navBody h3 {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.navBody:before {
+  background-color: #fff;
+  height: 50%;
+  top: calc(50% + 6px);
+}
+
+.navBody h3 {
+  background-color: #fff;
+  border: 6px solid #000;
+  border-radius: 50%;
+  height: 10em;
+  text-align: center;
+  width: 10em;
+  z-index: 1;
+}
+
+.navBody:after {
+  background-color: #000;
+  height: 6px;
+  top: 50%;
+}
+
+.navBody:after, .navBody:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+}
+
+/* PokemonFilter */
+.PokemonFilter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.filter-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.filter-wrapper select {
+  margin-right: 10px;
+}
+
+.search-button {
+  background:white;
+  border: none;
+}
+
+/* PokemonList */
+.pokemonContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* PokemonItem */
+.pokemonItem {
+  display: flex;
+  align-items: center;
+  margin: 10px;
+}
+
+.pokemonItem img {
+  margin-right: 10px;
 }
