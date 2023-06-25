@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
 import React from 'react'
 import '../App.css'
-import PokemonItem from './PokemonItem';
-import { Pokemon } from '../types/pokemonTypes';
+import PokemonItem from './PokemonItem'
+import { Pokemon } from '../types/pokemonTypes'
 
 interface PokemonSpecies {
   names: {
@@ -85,10 +85,10 @@ const PokemonList: React.FC = () => {
   }, [])
 
   return (
-    <div className='pokemonContainer'>
-        {pokemonData.map((pokemon) => (
-            <PokemonItem key={pokemon.species.name} pokemon={pokemon} />
-        ))}
+    <div className="pokemonContainer">
+      {pokemonData.map((pokemon) => (
+        <PokemonItem key={pokemon.species.name} pokemon={pokemon} />
+      ))}
     </div>
   )
 }

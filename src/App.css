@@ -46,13 +46,14 @@
 .navBody {
   background-color: red;
   color: #000;
-  font-size: clamp(16px,2.5vw,24px);
+  font-size: clamp(16px, 2.5vw, 24px);
   height: 100px;
   overflow: hidden;
   width: 100%;
 }
 
-.navBody, .navBody h3 {
+.navBody,
+.navBody h3 {
   align-items: center;
   display: flex;
   justify-content: center;
@@ -81,25 +82,40 @@
   top: 50%;
 }
 
-.navBody:after, .navBody:before {
-  content: "";
+.navBody:after,
+.navBody:before {
+  content: '';
   position: absolute;
   width: 100%;
 }
 
 /* PokemonFilter */
-
 .PokemonFilter {
   padding: 20px;
-  border-radius: 4px;
   display: flex;
   justify-content: center;
 }
 
 .filter-wrapper {
   display: flex;
-  align-items: center;
+  flex-direction: column;
   gap: 20px;
+}
+
+@media screen and (min-width: 768px) {
+  .filter-wrapper {
+    flex-direction: row;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .PokemonFilter {
+    padding-bottom: 40px;
+  }
+  .search-button svg {
+    position: absolute;
+    right: 50%;
+  }
 }
 
 .filter-item {
@@ -107,18 +123,9 @@
   flex-direction: column;
 }
 
-.filter-item label {
-  font-size: 14px;
-  color: #333;
-  margin-bottom: 8px;
-}
-
-.search-button {
-  background: none;
-  border: none;
+.search-button svg {
   cursor: pointer;
-  color: #333;
-  font-size: 24px;
+  font-size: 20px;
 }
 
 /* PokemonList */
@@ -134,8 +141,22 @@
   display: flex;
   align-items: center;
   margin: 10px;
+  border-radius: 15px;
+  padding: 10px;
 }
 
-.pokemonItem img {
-  margin-right: 10px;
+.pokemonInfo span {
+  font-size: 14px;
+  padding-right: 8px;
+  flex-grow: 1; /* アイテムに空きスペースを均等に分散 */
+}
+
+.pokemonImage {
+  padding: 10px; /* 画像の周りに余白を追加 */
+  background-color: white;
+  border-radius: 15px;
+}
+
+.pokemonImage img {
+  width: 100%; /* img要素が親要素のサイズに合わせて表示されるようにする */
 }
