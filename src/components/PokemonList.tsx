@@ -3,6 +3,7 @@ import React from 'react'
 import '../App.css'
 import PokemonItem from './PokemonItem'
 import { Pokemon } from '../types/pokemonTypes'
+import { Filters } from '../filter/pokemonFilter'
 
 interface PokemonSpecies {
   names: {
@@ -12,6 +13,10 @@ interface PokemonSpecies {
     name: string
   }[]
 }
+
+type PokemonListProps = {
+  filters: Filters;
+};
 
 type PokemonArray = Pokemon[]
 const pokeApiUrl = 'https://pokeapi.co/api/v2/pokemon/'
@@ -50,7 +55,7 @@ const getJapanesePokemonName = async (url: string): Promise<string> => {
   })
 }
 
-const PokemonList: React.FC = () => {
+const PokemonList: React.FC<PokemonListProps> = ({ filters }) => {
   const [pokemonData, setPokemon] = useState<PokemonArray>([])
 
   const loadPokemon = async (data: Pokemon[]) => {

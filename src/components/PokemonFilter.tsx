@@ -2,7 +2,11 @@ import React, { useState } from 'react'
 import { FaSearch } from 'react-icons/fa'
 import { Select, Option } from '@material-tailwind/react'
 
-const PokemonFilter: React.FC = () => {
+type PokemonFilterProps = {
+    onSearch: (generation: string, type: string, count: string) => void;
+  };
+
+const PokemonFilter: React.FC<PokemonFilterProps> = ({ onSearch }) => {
   const [generation, setGeneration] = useState('')
   const [type, setType] = useState('')
   const [count, setCount] = useState('')
@@ -14,7 +18,7 @@ const PokemonFilter: React.FC = () => {
     setCount(value ? value : '')
 
   const searchPokemon = () => {
-    console.log(generation, type, count)
+    onSearch(generation, type, count);
   }
   return (
     <div className="PokemonFilter">
